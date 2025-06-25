@@ -53,12 +53,19 @@ class TrainingPipeline:
             data_validation = DataValidation(data_ingestion_artifact=data_ingestion_artifact, data_validation_config=self.data_validation_config)
             data_validation_artifact = data_validation.initiate_data_validation()
             return data_validation_artifact
+        
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    def start_data_transformation(self):
+    def start_data_transformation(self, data_validation_artifact: DataValidationArtifact):
         try:
-            pass 
+            self.data_transformation_config = DataTransformationConfig(training_pipeline_config=self.training_pipeline_config) 
+            logging.info(f"Started Data Transformation")
+            data_transformation = DataTransformation(data_validation_artifact=data_validation_artifact, 
+                                                     data_transformation_config=self.data_transformation_config)
+            data_transformation_artifact = data_transformation.initiate_data_validation()
+            return data_transformation_artifact
+        
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
@@ -83,6 +90,7 @@ class TrainingPipeline:
     def run_pipeline(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion()
-            data_validation = self.start_data_validation()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
+            self.start_data_transformation(data_validation_artifact)
         except Exception as e:
             raise NetworkSecurityException(e, sys)
