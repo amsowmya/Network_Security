@@ -3,9 +3,16 @@ pandas
 numpy 
 pymongo
 certifi
-pymongo['srv']
+pymongo[srv]
 scikit-learn
 dill  
 pyyaml
+fastapi
+uvicorn
+ipykernel
+apache-airflow
+mlflow
+dvc
+jinja2
 
 -e .
