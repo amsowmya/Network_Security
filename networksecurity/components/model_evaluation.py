@@ -56,7 +56,7 @@ class ModelEvaluation:
                     is_model_accepted=is_model_accepted,
                     improved_accuracy=None,
                     best_model_path=None,
-                    trained_model_path=None,
+                    trained_model_path=train_model_file_path,
                     train_model_metric_artifact=self.model_trainer_artifact.test_metric_artifact,
                     best_model_metric_artifact=None
                 )
