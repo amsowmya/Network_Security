@@ -1,3 +1,3 @@
-!bin/sh
-nohup airflow scheduler &
+#!/bin/sh
+airflow scheduler & 
 airflow webserver
