@@ -23,3 +23,12 @@ aws configure
 2. s3 (Object storage)
 3. ECR (Elastic Container Registry)
 4. EC2 (Instance -> VM)
+
+
+- Create S3 bucket and keep 'Artifacts' and 'Saved_Model'
+
+#### Contineous Delivery
+Docker
+docker-compose.yaml
+main.yaml
+airflow/dags/training.py

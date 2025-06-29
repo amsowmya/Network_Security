@@ -1,6 +1,7 @@
 import os 
 import sys 
 import pandas as pd 
+from dotenv import load_dotenv
 
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logger.logger import logging
@@ -17,7 +18,18 @@ from networksecurity.constant.training_pipeline import SAVED_MODEL_DIR
 from networksecurity.utils.main_utils.utils import load_object
 
 from fastapi.templating import Jinja2Templates
-templates = Jinja2Templates(directory="./temolates")
+templates = Jinja2Templates(directory="./templates")
+
+load_dotenv()
+
+mongo_db_url = os.getenv("MONGODB_URL_KEY")
+print(mongo_db_url)
+
+AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+
+os.environ["AWS_ACCESS_KEY_ID"]=AWS_ACCESS_KEY_ID
+os.environ["AWS_SECRET_ACCESS_KEY"]=AWS_SECRET_ACCESS_KEY
 
 
 app = FastAPI()
