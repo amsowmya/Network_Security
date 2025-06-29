@@ -10,7 +10,6 @@ ENV PREDICTION_BUCKET_NAME="my-network-datasource"
 ENV AIRFLOW_HOME="/app/airflow"
 ENV AIRFLOW_CORE_DAGBAG_IMPORT_TIMEOUT=1000
 ENV AIRFLOW_CORE_ENABLE_XCOM_PICKLING=True 
-# Initialize Airflow database and create user
 RUN airflow db init
 RUN airflow users create \
     --username admin \

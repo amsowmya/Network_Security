@@ -10,7 +10,7 @@ pyyaml
 fastapi
 uvicorn
 ipykernel
-apache-airflow
+apache-airflow==2.8.1
 mlflow
 dvc
 jinja2
